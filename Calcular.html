@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Interés</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+    <!--Separacion de intereses -->
+    <div class="container mt-5">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="simple-tab" data-toggle="tab" href="#simple" role="tab" aria-controls="simple" aria-selected="true">Interés Simple</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="compound-tab" data-toggle="tab" href="#compound" role="tab" aria-controls="compound" aria-selected="false">Interés Compuesto</a>
+            </li>
+        </ul>
+
+  
+
+
+
+
+
+        
+
+
+
+        <!--calcular interes simple -->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="simple" role="tabpanel" aria-labelledby="simple-tab">
+                <h2>Calcular Valor Final</h2>
+                <div class="form-group">
+                    <label for="VA_simple">Valor Actual:</label>
+                    <input type="number" class="form-control" id="VA_simple">
+                </div>
+                <div class="form-group">
+                    <label for="tasa_simple">Tasa de Interés por Periodo (%):</label>
+                    <input type="number" class="form-control" id="tasa_simple" >
+                </div>
+                <div class="form-group">
+                    <label for="periodos_simple">Número de Periodos:</label>
+                    <input type="number" class="form-control" id="periodos_simple" >
+                </div>
+                <button class="btn btn-primary" onclick="calcularInteresSimple()">Calcular</button><br><br>
+                <div class="form-group">
+                    <label for="VF_simple">Valor Futuro:</label>
+                    <input type="text" class="form-control" id="VF_simple" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="I_simple">Valor de los Intereses:</label>
+                    <input type="text" class="form-control" id="I_simple" readonly>
+                </div>
+
+                <br><br><br>
+
+
+                <h2>Calcular Valor Actual</h2>
+        
+                <div class="row">
+                    <div class="col-md-6">
+                    
+                        <div class="form-group">
+                            <label for="VAsimple">Valor Futuro:</label>
+                            <input type="number" class="form-control" id="VAsimple" >
+                        </div>
+                        <div class="form-group">
+                            <label for="tasasimple">Tasa de Interés por Periodo (%):</label>
+                            <input type="number" class="form-control" id="tasasimple" >
+                        </div>
+                        <div class="form-group">
+                            <label for="periodossimple">Número de Periodos:</label>
+                            <input type="number" class="form-control" id="periodossimple" >
+                        </div>
+                        <button class="btn btn-primary" onclick="calcularVPSimple()">Calcular</button><br><br>
+                        <div class="form-group">
+                            <label for="VPsimple">Valor Presente:</label>
+                            <input type="text" class="form-control" id="VPsimple" readonly>
+                        </div>
+                    </div>
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+        
+            <!--calcular interes Compuesto -->
+            <div class="tab-pane fade" id="compound" role="tabpanel" aria-labelledby="compound-tab">
+                <h2>Calcular Valor Final</h2>
+                <div class="form-group">
+                    <label for="VA_compound">Valor Actual:</label>
+                    <input type="number" class="form-control" id="VA_compound" >
+                </div>
+                <div class="form-group">
+                    <label for="tasa_compound">Tasa de Interés por Periodo (%):</label>
+                    <input type="number" class="form-control" id="tasa_compound">
+                </div>
+                <div class="form-group">
+                    <label for="periodos_compound">Número de Periodos:</label>
+                    <input type="number" class="form-control" id="periodos_compound">
+                </div>
+                <button class="btn btn-primary" onclick="calcularInteresCompuesto()">Calcular</button><br><br>
+                <div class="form-group">
+                    <label for="VF_compound">Valor Futuro:</label>
+                    <input type="text" class="form-control" id="VF_compound" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="I_compound">Valor de los Intereses:</label>
+                    <input type="text" class="form-control" id="I_compound" readonly>
+                </div>
+                
+                <br><br><br>
+
+                <div class="col-md-6">
+                    <h2>Calcular Valor Actual</h2>
+                    <div class="form-group">
+                        <label for="VAcompuesto">Valor Futuro:</label>
+                        <input type="number" class="form-control" id="VAcompuesto" >
+                    </div>
+                    <div class="form-group">
+                        <label for="tasacompuesto">Tasa de Interés por Periodo (%):</label>
+                        <input type="number" class="form-control" id="tasacompuesto" >
+                    </div>
+                    <div class="form-group">
+                        <label for="periodoscompuesto">Número de Periodos:</label>
+                        <input type="number" class="form-control" id="periodoscompuesto" >
+                    </div>
+                    <button class="btn btn-primary" onclick="calcularVPCompuesto()">Calcular</button><br><br>
+                    <div class="form-group">
+                        <label for="VPcompuesto">Valor Actual:</label>
+                        <input type="text" class="form-control" id="VPcompuesto" readonly>
+                    </div>
+                    
+                </div>
+
+            </div>
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+     <!--Funciones-->
+    <script>
+        function calcularInteresSimple() {
+            var VA = parseFloat(document.getElementById("VA_simple").value);
+            var i = parseFloat(document.getElementById("tasa_simple").value) / 100; // convertir a decimal
+            var n = parseFloat(document.getElementById("periodos_simple").value);
+
+            var VF = VA * (1 + i * n);
+            var I = VF - VA;
+
+            document.getElementById("VF_simple").value = VF.toFixed(2);
+            document.getElementById("I_simple").value = I.toFixed(2);
+        }
+
+        function calcularInteresCompuesto() {
+            var VA = parseFloat(document.getElementById("VA_compound").value);
+            var i = parseFloat(document.getElementById("tasa_compound").value) / 100; // convertir a decimal
+            var n = parseFloat(document.getElementById("periodos_compound").value);
+
+            var VF = VA * Math.pow(1 + i, n);
+            var I = VF - VA;
+
+            document.getElementById("VF_compound").value = VF.toFixed(2);
+            document.getElementById("I_compound").value = I.toFixed(2);
+        }
+        function calcularVPSimple() {
+            var VF = parseFloat(document.getElementById("VAsimple").value);
+            var i = parseFloat(document.getElementById("tasasimple").value) / 100; // convertir a decimal
+            var n = parseFloat(document.getElementById("periodossimple").value);
+
+            var VP = VF / (1 + i * n);
+
+            document.getElementById("VPsimple").value = VP.toFixed(2);
+        }
+
+        function calcularVPCompuesto() {
+            var VF = parseFloat(document.getElementById("VAcompuesto").value);
+            var i = parseFloat(document.getElementById("tasacompuesto").value) / 100; // convertir a decimal
+            var n = parseFloat(document.getElementById("periodoscompuesto").value);
+
+            var VP = VF / Math.pow(1 + i, n);
+
+            document.getElementById("VPcompuesto").value = VP.toFixed(2);
+        }
+    </script>
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
